@@ -2,7 +2,25 @@
 
 mruby/plc is an experimental project.
 
-I am trying to run a based mruby program on a PLC (Programmable logic controller).
+I am trying to run a based [mruby](https://github.com/mruby/mruby) program on a PLC (Programmable logic controller).
+
+## Requirement
+
+
+This gem uses mruby. So you have to install [mruby](https://github.com/mruby/mruby) 3.0 before.  
+
+
+For installing mruby, refer to the mruby GitHub page.
+
+[The mruby GitHub page](https://github.com/mruby/mruby)
+
+Or use brew, etc.
+
+```
+% brew install mruby
+```
+
+
 
 ## Installation
 
