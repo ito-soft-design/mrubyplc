@@ -1,6 +1,4 @@
 require "mrubyplc/version"
-
-module Mrubyplc
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "mrubyplc/load"
+require "mrubyplc/irep"
+require "mrubyplc/code"

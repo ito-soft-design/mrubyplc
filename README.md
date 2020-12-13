@@ -9,7 +9,6 @@ I am trying to run a based [mruby](https://github.com/mruby/mruby) program on a 
 
 This gem uses mruby. So you have to install [mruby](https://github.com/mruby/mruby) 3.0 before.  
 
-
 For installing mruby, refer to the mruby GitHub page.
 
 [The mruby GitHub page](https://github.com/mruby/mruby)
@@ -50,7 +49,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/itosoft/mrubyplc. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/itosoft/mrubyplc/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/ito-soft-design/mrubyplc. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/ito-soft-design/mrubyplc/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License

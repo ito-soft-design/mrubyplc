@@ -2,21 +2,21 @@ require_relative 'lib/mrubyplc/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "mrubyplc"
-  spec.version       = Mrubyplc::VERSION
+  spec.version       = MRubyPlc::VERSION
   spec.authors       = ["Katsuyoshi Ito"]
   spec.email         = ["kito@itosoft.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Run a based mruby program on a PLC.}
+  spec.description   = %q{mruby/plc is an experimental project. I am trying to run a based mruby program on a PLC (Programmable logic controller).}
+  spec.homepage      = "https://github.com/ito-soft-design/mrubyplc"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/ito-soft-design/mrubyplc"
+  spec.metadata["changelog_uri"] = "https://github.com/ito-soft-design/mrubyplc/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

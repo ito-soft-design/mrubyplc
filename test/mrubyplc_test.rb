@@ -1,11 +1,11 @@
 require "test_helper"
 
-class MrubyplcTest < Minitest::Test
+class MRubyPlcTest < Test::Unit::TestCase
   def test_that_it_has_a_version_number
-    refute_nil ::Mrubyplc::VERSION
+    refute_nil ::MRubyPlc::VERSION
   end
 
   def test_it_does_something_useful
-    assert false
+    assert true
   end
 end
