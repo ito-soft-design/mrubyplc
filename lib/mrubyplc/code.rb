@@ -13,7 +13,7 @@ class Code
       when 0
         @no = e.to_i
       when 1
-        @address = e.to_i(16)
+        @address = e.to_i
       when 2
         @opecode = e
       else
