@@ -12,8 +12,8 @@ class LoaderTest < Test::Unit::TestCase
     assert_equal irep.reps, 0
     assert_equal irep.iseq, 8
 
-    assert_equal "R1", irep.locals.first[:register]
-    assert_equal "a", irep.locals.first[:name]
+    assert_equal "R1", irep.locals.first.reg
+    assert_equal "a", irep.locals.first.name
 
     code = irep.codes[0]
     assert_equal 1, code.no
@@ -40,43 +40,50 @@ class LoaderTest < Test::Unit::TestCase
     assert_equal irep.iseq, 34
 
     irep.variables[1].tap do |v|
-      assert_equal :local, v[:variable_type]
-      assert_equal "R1", v[:register]
-      assert_equal "a", v[:name]
-      assert_equal :integer, v[:value_type]
-      assert_equal 10, v[:base]
-      assert_equal 1, v[:value]
+      assert_equal :local, v.var_type
+      assert_equal "R1", v.reg
+      assert_equal "a", v.name
+      assert_equal :integer, v.val_type
+      assert_equal 10, v.base
+      assert_equal 1, v.value
     end
     irep.variables[2].tap do |v|
-      assert_equal :local, v[:variable_type]
-      assert_equal "R2", v[:register]
-      assert_equal "b", v[:name]
+      assert_equal :local, v.var_type
+      assert_equal "R2", v.reg
+      assert_equal "b", v.name
+      assert_equal :boolean, v.val_type
+      assert_equal true, v.value
     end
     irep.variables[3].tap do |v|
-      assert_equal :local, v[:variable_type]
-      assert_equal "R3", v[:register]
-      assert_equal "c", v[:name]
+      assert_equal :local, v.var_type
+      assert_equal "R3", v.reg
+      assert_equal "c", v.name
+      assert_equal :float, v.val_type
+      assert_equal 1.23, v.value
     end
     irep.variables[4].tap do |v|
-      assert_equal :local, v[:variable_type]
-      assert_equal "R4", v[:register]
-      assert_equal "d", v[:name]
+      assert_equal :local, v.var_type
+      assert_equal "R4", v.reg
+      assert_equal "d", v.name
+      assert_equal :string, v.val_type
+      assert_equal "abc", v.value
+      assert_equal 3, v.size
     end
     irep.variables[5].tap do |v|
-      assert_equal :local, v[:variable_type]
-      assert_equal "e", v[:name]
+      assert_equal :local, v.var_type
+      assert_equal "e", v.name
     end
     irep.variables[6].tap do |v|
-      assert_equal :instance, v[:variable_type]
-      assert_equal "@f", v[:name]
+      assert_equal :instance, v.var_type
+      assert_equal "@f", v.name
     end
     irep.variables[7].tap do |v|
-      assert_equal :class, v[:variable_type]
-      assert_equal "@@f", v[:name]
+      assert_equal :class, v.var_type
+      assert_equal "@@f", v.name
     end
     irep.variables[8].tap do |v|
-      assert_equal :global, v[:variable_type]
-      assert_equal "$g", v[:name]
+      assert_equal :global, v.var_type
+      assert_equal "$g", v.name
     end
 
     irep.codes[0].tap do |code|

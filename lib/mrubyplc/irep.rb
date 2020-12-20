@@ -9,7 +9,7 @@ class IREP
   end
 
   def locals
-    variables.select{|v| v && v[:variable_type] == :local }
+    variables.select{|v| v && v.var_type == :local }
   end
 
 end
