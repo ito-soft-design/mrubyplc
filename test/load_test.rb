@@ -32,12 +32,12 @@ class LoaderTest < Test::Unit::TestCase
   def test_load_prg_002
     irep = load 'test/files/prg_002.rb'
     #assert_equal irep.id, "0x7fc23d606790"
-    assert_equal irep.nregs, 7
-    assert_equal irep.nlocals, 6
+    assert_equal irep.nregs, 8
+    assert_equal irep.nlocals, 7
     assert_equal irep.pools, 2
     assert_equal irep.syms, 4
     assert_equal irep.reps, 0
-    assert_equal irep.iseq, 34
+    assert_equal irep.iseq, 39
 
     irep.variables[1].tap do |v|
       assert_equal :local, v.var_type
@@ -85,17 +85,25 @@ class LoaderTest < Test::Unit::TestCase
       assert_equal :global, v.var_type
       assert_equal "$g", v.name
     end
+    irep.variables[9].tap do |v|
+      assert_equal :local, v.var_type
+      assert_equal "R6", v.reg
+      assert_equal "a0", v.name
+      assert_equal :integer, v.val_type
+      assert_equal 10, v.base
+      assert_equal 1, v.value
+    end
 
-    irep.codes[0].tap do |code|
+    irep.codes.first.tap do |code|
       assert_equal 1, code.no
       assert_equal 0, code.address
       assert_equal "OP_LOADI_1", code.opecode
       assert_equal ["R1"], code.operands
     end
 
-    irep.codes[12].tap do |code|
-      assert_equal 8, code.no
-      assert_equal 33, code.address
+    irep.codes[-2].tap do |code|
+      assert_equal 9, code.no
+      assert_equal 38, code.address
       assert_equal "OP_STOP", code.opecode
     end
 

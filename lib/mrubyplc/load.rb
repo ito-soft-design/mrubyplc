@@ -56,7 +56,7 @@ module MRubyPlc
           v.val_type = :boolean
           v.value = val
         end
-      when /^(\d+)\s+NODE_INT\s+([1-9a-f]+)\s+base\s+(\d+)/
+      when /^(\d+)\s+NODE_INT\s+([0-9a-f]+)\s+base\s+(\d+)/
         no = $1.to_i
         val = $2
         b = $3

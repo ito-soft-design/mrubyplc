@@ -2,6 +2,7 @@ require 'thor'
 require 'fileutils'
 
 include FileUtils
+include MRubyPlc
 
 module MRubyPlc
   class CLI < Thor
@@ -10,9 +11,11 @@ module MRubyPlc
 
     desc "build", "Build a project"
     def build(path)
-      p path
       irep = load path
-      p irep
+      irep.variables.each do |v|
+        next unless v
+        puts "#{v.name } : #{v.var_type}, #{v.val_type}, #{v.value }"
+      end
     end
   end
 end
