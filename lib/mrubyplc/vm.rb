@@ -18,12 +18,12 @@ class VirtualMachine
   end
 
   def assign_memory
-    @regs_ptr = plc.assign_regs irep.nregs
+    @regs_ptr = plc.reserve_regs irep.nregs
     irep.variables.each do |v|
       next unless v
       case v.var_type
       when :local
-        d = plc.reg_device_for(@regs_ptr, v.reg)
+        d = plc.assign_reg_for(@regs_ptr, v.reg)
         regs[v.reg] = PlcVariable.new(v.reg, v.name, d, v)
       when :instance
         d = plc.assign_ivar

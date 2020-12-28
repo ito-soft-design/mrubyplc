@@ -15,13 +15,13 @@ class PLC
     @dg_ptr = 0
   end
 
-  def assign_regs nreg
+  def reserve_regs nreg
     @dr_ptr.tap do |ptr|
       @dr_ptr += SIZE_OF_MRB_VALUE * nreg
     end
   end
 
-  def reg_device_for ptr, reg
+  def assign_reg_for ptr, reg
     index = reg.match(/\d+/).values_at(0).first.to_i - 1
     "DR#{ptr + SIZE_OF_MRB_VALUE * index}"
   end
