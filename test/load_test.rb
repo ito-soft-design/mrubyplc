@@ -79,11 +79,11 @@ class LoaderTest < Test::Unit::TestCase
     end
     irep.variables[7].tap do |v|
       assert_equal :class, v.var_type
-      assert_equal "@@f", v.name
+      assert_equal "@@g", v.name
     end
     irep.variables[8].tap do |v|
       assert_equal :global, v.var_type
-      assert_equal "$g", v.name
+      assert_equal "$h", v.name
     end
 
     irep.codes[0].tap do |code|
