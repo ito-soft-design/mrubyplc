@@ -4,6 +4,7 @@ class PLC
 
   attr_reader :ireps
   attr_reader :dr_ptr, :di_ptr, :dc_ptr, :dg_ptr
+  attr_reader :ss_ptr
 
   SIZE_OF_MRB_VALUE = 3
 
@@ -13,6 +14,7 @@ class PLC
     @di_ptr = 0
     @dc_ptr = 0
     @dg_ptr = 0
+    @ss_ptr = 0
   end
 
   def reserve_regs nreg
@@ -41,6 +43,12 @@ class PLC
   def assign_gvar
     d = "DG#{@dg_ptr}"
     @dg_ptr += SIZE_OF_MRB_VALUE
+    d
+  end
+
+  def assign_ssvar
+    d = "SS#{@ss_ptr}"
+    @ss_ptr += 1
     d
   end
 

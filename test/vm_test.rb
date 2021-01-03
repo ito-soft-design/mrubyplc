@@ -12,12 +12,23 @@ class VmWithPrg001Test < Test::Unit::TestCase
   # end
 
   def test_assign_memory
-    @vm.assign_memory
-    assert_equal 1, @vm.regs.size
+    assert_equal 3, @vm.regs.size
     r = @vm.regs.values.first
     assert_equal ["R1", "a", "DR0"], [r.reg_name, r.var_name, r.device] 
   end
 
+  def test_ladders
+    assert_equal [
+      %w(LDP     $_ON),
+      %w(SET     SS0),
+      %w(LD      SS0),
+      ['LOADI',  'DR3', 1],
+      %w(MOVE    DR0 DR3),
+      %w(RST     SS0),
+    ], 
+    @vm.ladders
+  end
+  
 end
 
 class VmWithPrg002Test < Test::Unit::TestCase
@@ -25,14 +36,13 @@ class VmWithPrg002Test < Test::Unit::TestCase
   def setup
     @irep = load 'test/files/prg_002.rb'
     @vm = VirtualMachine.new @irep
-    @vm.assign_memory
   end
 
   # def teardown
   # end
 
   def test_local_variables
-    assert_equal 5, @vm.regs.size
+    assert_equal 7, @vm.regs.size
     r = @vm.regs.values[0]
     assert_equal ["R1", "a", "DR0"], [r.reg_name, r.var_name, r.device] 
     r = @vm.regs.values[1]
